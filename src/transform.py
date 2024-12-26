@@ -1,42 +1,9 @@
 from extract import *
+from utils import *
 
 ## limpeza, validacao e transformacao dos dados
 
-print(dt.info())
-print()
-
-# verificacao de valores ausentes por coluna
-if dt.isna().any(axis=1).any():
-    print("Há valores ausentes")
-    valores_ausentes = dt.isna().sum()
-    print(f'Valores ausentes:\n\n{valores_ausentes}\n')
-else:
-    print("Não há valores ausentes\n")
-
-# verificacao de linhas duplicadas
-if dt.duplicated().any():
-    print("Há linhas duplicadas")
-    linhas_duplicadas = dt.duplicated().sum()
-    print(f'Linhas duplicadas:\n\n{linhas_duplicadas}\n')
-else:
-    print("Não há linhas duplicadas\n")
-
-# mudar coluna de posicao
-coluna = dt.pop('deposit')
-dt.insert(6,'deposit',coluna)
-
-# adicao de IDs para cada linha
-dt = dt.reset_index()
-dt['index'] += 1
-
-# mudar valores em segundos para minutos na coluna 'duration'
-dt['duration'] = dt.apply(
-    lambda row: row['duration'] / 60,
-    axis = 1
-)
-# definicao de visualizacao para numeros com uma casa decimal
-pd.options.display.float_format = '{:.0f}'.format 
-
+verificar_dataset('Verificacao inicial',dt)
 
 # traducao de colunas
 traducao_colunas = {
@@ -54,23 +21,30 @@ traducao_colunas = {
     'day': 'dia_contato',
     'month': 'mes_contato',
     'duration': 'duracao_contato',
-    'campaign': 'quantidade_contato',
+    'campaign': 'quantidade_contato_atual',
     'pdays': 'quantidade_dias_contato',
-    'previous': 'quantidade_contato',
+    'previous': 'quantidade_contato_anterior',
     'poutcome': 'resultado'
 }
-
 dt = dt.rename(traducao_colunas, axis = 1)
 
-# traducao de valores
-def traducao_valores_booleanos(coluna):
-    dt[coluna] = dt.apply(
-    lambda row: 'sim' if row[coluna] == 'yes'
-    else 'nao',
+# validacao e limpeza dos dados
+dt = valores_ausentes(dt)
+dt = duplicatas(dt)
+
+# mudar coluna de posicao
+coluna = dt.pop('deposito_prazo')
+dt.insert(5,'deposito_prazo',coluna)
+
+# mudar valores em segundos para minutos na coluna 'duracao_contato'
+dt['duracao_contato'] = dt.apply(
+    lambda row: row['duracao_contato'] / 60,
     axis = 1
 )
+# definicao de visualizacao para numeros com uma casa decimal
+pd.options.display.float_format = '{:.0f}'.format
 
-
+# traducao de valores
 dt['ocupacao'] = dt.apply(
     lambda row: 'gestao' if row['ocupacao'] == 'management'
     else 'administracao' if row['ocupacao'] == 'admin.'
@@ -94,10 +68,10 @@ dt['escolaridade'] = dt.apply(
     axis = 1
 )
 
-traducao_valores_booleanos('inadimplencia')
-traducao_valores_booleanos('deposito_prazo')
-traducao_valores_booleanos('emprestimo_habitacional')
-traducao_valores_booleanos('emprestimo_pessoal')
+dt = traducao_valores_booleanos(dt,'inadimplencia')
+dt = traducao_valores_booleanos(dt,'deposito_prazo')
+dt = traducao_valores_booleanos(dt,'emprestimo_habitacional')
+dt = traducao_valores_booleanos(dt,'emprestimo_pessoal')
 
 dt['meio_contato'] = dt.apply(
     lambda row: 'celular' if row['meio_contato'] == 'cellular'
@@ -128,5 +102,18 @@ dt['resultado'] = dt.apply(
     else 'fracasso',
     axis = 1
 )
+verificar_dataset('Traducao e tratamento de dados',dt)
 
-dt.to_csv('data/bank_marketing_dataset_transformed.csv', index=False, float_format='%.0f')
+dt.to_csv('data/processed/bank_marketing_dataset_transformed.csv', index=False, float_format='%.0f')
+
+
+# verificacao final de tratamento de dados
+arquivo_csv = pd.read_csv('data/processed/bank_marketing_dataset_transformed.csv', sep=',')
+arquivo_csv = valores_ausentes(arquivo_csv)
+arquivo_csv = duplicatas(arquivo_csv)
+arquivo_csv = adicao_index(arquivo_csv)
+verificar_dataset('Verificacao final',arquivo_csv)
+
+arquivo_csv.to_csv('data/processed/bank_marketing_dataset_transformed.csv', index=False, float_format='%.0f')
+
+print("Transformação concluída.")

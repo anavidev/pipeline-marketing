@@ -1,0 +1,66 @@
+2024-12-26 16:55:42,658 - INFO 
+Dataset importado
+   age         job  marital  ... previous poutcome  deposit
+0   59      admin.  married  ...        0  unknown      yes
+1   56      admin.  married  ...        0  unknown      yes
+2   41  technician  married  ...        0  unknown      yes
+3   55    services  married  ...        0  unknown      yes
+4   54      admin.  married  ...        0  unknown      yes
+
+[5 rows x 17 columns]
+Quantidade de linhas: 4999
+
+2024-12-26 16:55:42,669 - INFO 
+Verificacao inicial
+   age         job  marital  ... previous poutcome  deposit
+0   59      admin.  married  ...        0  unknown      yes
+1   56      admin.  married  ...        0  unknown      yes
+2   41  technician  married  ...        0  unknown      yes
+3   55    services  married  ...        0  unknown      yes
+4   54      admin.  married  ...        0  unknown      yes
+
+[5 rows x 17 columns]
+Quantidade de linhas: 4999
+
+2024-12-26 16:55:42,672 - INFO 
+Nao ha valores ausentes
+
+2024-12-26 16:55:42,677 - INFO 
+Removendo 519 linhas duplicadas
+
+2024-12-26 16:55:42,680 - INFO 
+Linhas duplicadas removidas
+
+2024-12-26 16:55:43,111 - INFO 
+Traducao e tratamento de dados
+   idade       ocupacao  ... quantidade_contato_anterior     resultado
+0     59  administracao  ...                           0  desconhecido
+1     56  administracao  ...                           0  desconhecido
+2     41        tecnico  ...                           0  desconhecido
+3     55       servicos  ...                           0  desconhecido
+4     54  administracao  ...                           0  desconhecido
+
+[5 rows x 17 columns]
+Quantidade de linhas: 4480
+
+2024-12-26 16:55:43,162 - INFO 
+Nao ha valores ausentes
+
+2024-12-26 16:55:43,166 - INFO 
+Removendo 4 linhas duplicadas
+
+2024-12-26 16:55:43,169 - INFO 
+Linhas duplicadas removidas
+
+2024-12-26 16:55:43,182 - INFO 
+Verificacao final
+   id  idade  ... quantidade_contato_anterior     resultado
+0   1     59  ...                           0  desconhecido
+1   2     56  ...                           0  desconhecido
+2   3     41  ...                           0  desconhecido
+3   4     55  ...                           0  desconhecido
+4   5     54  ...                           0  desconhecido
+
+[5 rows x 18 columns]
+Quantidade de linhas: 4476
+
