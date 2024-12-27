@@ -1,66 +1,46 @@
-2024-12-26 16:55:42,658 - INFO 
-Dataset importado
-   age         job  marital  ... previous poutcome  deposit
-0   59      admin.  married  ...        0  unknown      yes
-1   56      admin.  married  ...        0  unknown      yes
-2   41  technician  married  ...        0  unknown      yes
-3   55    services  married  ...        0  unknown      yes
-4   54      admin.  married  ...        0  unknown      yes
-
-[5 rows x 17 columns]
+2024-12-27 16:30:23,976 - INFO 
+Dataset importado com sucesso.
 Quantidade de linhas: 4999
+Quantidade de colunas: 17
 
-2024-12-26 16:55:42,669 - INFO 
-Verificacao inicial
-   age         job  marital  ... previous poutcome  deposit
-0   59      admin.  married  ...        0  unknown      yes
-1   56      admin.  married  ...        0  unknown      yes
-2   41  technician  married  ...        0  unknown      yes
-3   55    services  married  ...        0  unknown      yes
-4   54      admin.  married  ...        0  unknown      yes
+2024-12-27 16:30:23,977 - INFO 
+Verificacao de valores ausentes.
 
-[5 rows x 17 columns]
-Quantidade de linhas: 4999
+2024-12-27 16:30:23,979 - INFO 
+Nao ha valores ausentes.
 
-2024-12-26 16:55:42,672 - INFO 
-Nao ha valores ausentes
+2024-12-27 16:30:23,979 - INFO 
+Verificacao de linhas duplicadas.
 
-2024-12-26 16:55:42,677 - INFO 
-Removendo 519 linhas duplicadas
+2024-12-27 16:30:23,984 - INFO 
+Removendo 519 linhas duplicadas.
 
-2024-12-26 16:55:42,680 - INFO 
-Linhas duplicadas removidas
+2024-12-27 16:30:23,987 - INFO 
+Linhas duplicadas removidas. Total de linhas apos remocao: 4480.
 
-2024-12-26 16:55:43,111 - INFO 
-Traducao e tratamento de dados
-   idade       ocupacao  ... quantidade_contato_anterior     resultado
-0     59  administracao  ...                           0  desconhecido
-1     56  administracao  ...                           0  desconhecido
-2     41        tecnico  ...                           0  desconhecido
-3     55       servicos  ...                           0  desconhecido
-4     54  administracao  ...                           0  desconhecido
+2024-12-27 16:30:23,988 - INFO 
+Coluna deposito_prazo foi movida para a posicao 5 no dataset.
 
-[5 rows x 17 columns]
-Quantidade de linhas: 4480
+2024-12-27 16:30:24,428 - INFO 
+Verificacao de valores ausentes.
 
-2024-12-26 16:55:43,162 - INFO 
-Nao ha valores ausentes
+2024-12-27 16:30:24,430 - INFO 
+Nao ha valores ausentes.
 
-2024-12-26 16:55:43,166 - INFO 
-Removendo 4 linhas duplicadas
+2024-12-27 16:30:24,430 - INFO 
+Verificacao de linhas duplicadas.
 
-2024-12-26 16:55:43,169 - INFO 
-Linhas duplicadas removidas
+2024-12-27 16:30:24,434 - INFO 
+Removendo 4 linhas duplicadas.
 
-2024-12-26 16:55:43,182 - INFO 
-Verificacao final
-   id  idade  ... quantidade_contato_anterior     resultado
-0   1     59  ...                           0  desconhecido
-1   2     56  ...                           0  desconhecido
-2   3     41  ...                           0  desconhecido
-3   4     55  ...                           0  desconhecido
-4   5     54  ...                           0  desconhecido
+2024-12-27 16:30:24,437 - INFO 
+Linhas duplicadas removidas. Total de linhas apos remocao: 4476.
 
-[5 rows x 18 columns]
+2024-12-27 16:30:24,439 - INFO 
+A coluna 'id' foi criada para identificacao unica de registros.
+
+2024-12-27 16:30:24,439 - INFO 
+Verificacao final.
 Quantidade de linhas: 4476
+Quantidade de colunas: 18
 

@@ -3,8 +3,6 @@ from utils import *
 
 ## limpeza, validacao e transformacao dos dados
 
-verificar_dataset('Verificacao inicial',dt)
-
 # traducao de colunas
 traducao_colunas = {
     'index': 'id',
@@ -33,8 +31,7 @@ dt = valores_ausentes(dt)
 dt = duplicatas(dt)
 
 # mudar coluna de posicao
-coluna = dt.pop('deposito_prazo')
-dt.insert(5,'deposito_prazo',coluna)
+mudar_coluna(dt,'deposito_prazo',5)
 
 # mudar valores em segundos para minutos na coluna 'duracao_contato'
 dt['duracao_contato'] = dt.apply(
@@ -102,7 +99,6 @@ dt['resultado'] = dt.apply(
     else 'fracasso',
     axis = 1
 )
-verificar_dataset('Traducao e tratamento de dados',dt)
 
 dt.to_csv('data/processed/bank_marketing_dataset_transformed.csv', index=False, float_format='%.0f')
 
@@ -112,7 +108,7 @@ arquivo_csv = pd.read_csv('data/processed/bank_marketing_dataset_transformed.csv
 arquivo_csv = valores_ausentes(arquivo_csv)
 arquivo_csv = duplicatas(arquivo_csv)
 arquivo_csv = adicao_index(arquivo_csv)
-verificar_dataset('Verificacao final',arquivo_csv)
+verificar_dataset("Verificacao final.",arquivo_csv)
 
 arquivo_csv.to_csv('data/processed/bank_marketing_dataset_transformed.csv', index=False, float_format='%.0f')
 
