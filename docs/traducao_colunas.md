@@ -7,7 +7,7 @@
 - **Estado civil** (marital): Estado civil do cliente.
 - **Nível de escolaridade** (education): Nível de escolaridade do cliente.
 - **Tem crédito inadimplente?** (default): Indica se o cliente possui crédito em situação de inadimplência.
-- **Saldo médio anual** (balance): Saldo médio anual da conta bancária do cliente.
+- **Saldo médio anual** (balance): Saldo médio anual da conta bancária do cliente, em euros.
 - **Tem empréstimo habitacional?** (housing): Indica se o cliente possui um empréstimo habitacional.
 - **Tem empréstimo pessoal?** (loan): Indica se o cliente possui um empréstimo pessoal.
 - **Meio de contato** (contact): Forma de contato do cliente.
