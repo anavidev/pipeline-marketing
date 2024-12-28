@@ -61,4 +61,4 @@ Este pipeline realiza as seguintes etapas do processo ETL:
 
 - **Visualização no Tableau**: [Acesse a Visualização](https://public.tableau.com/app/profile/anavioliveira/viz/DashboardCampanhadeMarketingdeBanco/DashboardCampanhadeMarketingdeBanco)
 
-- **Vídeo com dados carregados no BigQuery**: [![Acesse a Demonstração](https://drive.google.com/file/d/1KWg0SA4tKOHNIupgXqEsdqG_rsNbrMXp/view?usp=drive_link)](https://drive.google.com/file/d/15YbyKQdWnpmAcoUs-Yle8G_PpiZjRsCC/view?usp=drive_link)
+- **Vídeo com dados carregados no BigQuery**: [![Acesse a Demonstração](assets/thumbnail.png)](https://drive.google.com/file/d/15YbyKQdWnpmAcoUs-Yle8G_PpiZjRsCC/view?usp=sharing)
