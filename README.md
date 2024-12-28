@@ -13,6 +13,7 @@ O dataset utilizado (*Bank Marketing Dataset*) foi disponibilizado por Janio Mar
   - `extract_bigquery.py`: Etapa para extrair os dados do BigQuery e exportá-los para um arquivo Excel.
 - `data/raw`: Arquivos com dados brutos, ainda não transformados.
 - `data/processed`: Arquivos com dados que já passaram pelas etapas de transformação e limpeza.
+- `data/logs`: Arquivos logs para monitoramento e acompanhamento do processo de transformação dos dados.
 - `docs`: Contém legendas de cada coluna do dataset.
 - `README.md`: Documento que descreve o projeto e suas funcionalidades.
 
